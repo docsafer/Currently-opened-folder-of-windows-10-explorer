@@ -58,24 +58,24 @@ BOOL CWin10ExplorerCurrentFolders::RefreshShellView(HWND hWnd, LPARAM lParam)
 	}
 	return(TRUE);
 }
-CString CWin10ExplorerCurrentFolders::Get(CString strPath)
+CString CWin10ExplorerCurrentFolders::CheckShellSpecialFolder(CString strPath)
 {
 	KNOWNFOLDERID fid = GUID_NULL;
 
 	strPath.TrimLeft();
 	strPath.TrimRight();
 
-	if (strPath .Compare(_T("Desktop"))==0 || strPath.Compare(_T("◊¿√Ê")) == 0)
+	if (strPath .Compare(_T("Desktop"))==0 || strPath.Compare(_T("Ê°åÈù¢")) == 0)
 		fid = FOLDERID_Desktop;
-	else if (strPath.Compare(_T("Documents")) == 0 || strPath.Compare(_T("Œƒµµ")) == 0)
+	else if (strPath.Compare(_T("Documents")) == 0 || strPath.Compare(_T("ÊñáÊ°£")) == 0)
 		fid = FOLDERID_Documents;
-	else if (strPath.Compare(_T("Music")) == 0 || strPath.Compare(_T("“Ù¿÷")) == 0)
+	else if (strPath.Compare(_T("Music")) == 0 || strPath.Compare(_T("Èü≥‰πê")) == 0)
 		fid = FOLDERID_Music;
-	else if (strPath.Compare(_T("Pictures")) == 0 || strPath.Compare(_T("Õº∆¨")) == 0)
+	else if (strPath.Compare(_T("Pictures")) == 0 || strPath.Compare(_T("ÂõæÁâá")) == 0)
 		fid = FOLDERID_Pictures;
-	else if (strPath.Compare(_T("Videos")) == 0 || strPath.Compare(_T(" ”∆µ")) == 0)
+	else if (strPath.Compare(_T("Videos")) == 0 || strPath.Compare(_T("ËßÜÈ¢ë")) == 0)
 		fid = FOLDERID_Videos;
-	else if (strPath.Compare(_T("Downloads")) == 0 || strPath.Compare(_T("œ¬‘ÿ")) == 0)
+	else if (strPath.Compare(_T("Downloads")) == 0 || strPath.Compare(_T("‰∏ãËΩΩ")) == 0)
 		fid = FOLDERID_Downloads;
 	else
 		return _T("");//not supported
@@ -95,7 +95,7 @@ CString CWin10ExplorerCurrentFolders::Get(CString strPath)
 
 	return sRet;
 }
-DWORD CWin10ExplorerCurrentFolders::GetCurrentOpenedFolders(vector<CString> &aryPaths)
+DWORD CWin10ExplorerCurrentFolders::Get(vector<CString> &aryPaths)
 {
 	EnumWindows((WNDENUMPROC)RefreshShellView, (LPARAM)&aryPaths);
 
