@@ -5,7 +5,7 @@ Traversing the window to get the path
 
 Easy to use：
 
-vector<<CString>>> aryPaths；
+vector&lt;CString&lt; aryPaths；
 CWin10ExplorerCurrentFolders::Get(aryPaths)；
   
   
